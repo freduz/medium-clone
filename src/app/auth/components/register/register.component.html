@@ -1,0 +1,35 @@
+<div class="register-container">
+  <div class="register-header">
+    <h1>Sign Up</h1>
+    <a [routerLink]="['/login']"><p>Have An Account?</p></a>
+    <mc-backend-error
+      *ngIf="backendErrors$ | async as errors"
+      [errors]="errors"
+    ></mc-backend-error>
+  </div>
+  <form [formGroup]="registerForm" (ngSubmit)="registerAccount()">
+    <div class="input-container">
+      <div class="input-area">
+        <mc-input [control]="userName" placeholder="Username"></mc-input>
+      </div>
+      <div class="input-area">
+        <mc-input type="email" placeholder="Email" [control]="email"></mc-input>
+      </div>
+      <div class="input-area">
+        <mc-input
+          type="password"
+          placeholder="Password"
+          [control]="password"
+        ></mc-input>
+      </div>
+      <div class="btn-area">
+        <button
+          type="submit"
+          [disabled]="(isSubmitting$ | async) || registerForm.invalid"
+        >
+          Sign Up
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
-};
+  production: true,
+  api: 'https://conduit.productionready.io/api',
+}

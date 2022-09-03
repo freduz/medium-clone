@@ -1,0 +1,4 @@
+<input [type]="type" [placeholder]="placeholder" [formControl]="control" />
+<mc-error *ngIf="control.invalid && (control.touched || control.dirty)">
+  <p *ngIf="control.errors?.required">{{ placeholder }} is required</p>
+</mc-error>
